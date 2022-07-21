@@ -6,11 +6,11 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex justify-between mb-14 ">
+    <div className="flex justify-between mb-20">
       {!isOpen ? (
         <button
           type="button"
-          className="fixed z-10 cursor-pointer hover:scale-125 ease-in-out duration-200 "
+          className="fixed z-10 cursor-pointer hover:scale-125 ease-in-out duration-200"
           onClick={() => setIsOpen(!isOpen)}
         >
           <MenuAlt2Icon className="h-14 w-14 text-purple" />

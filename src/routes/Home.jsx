@@ -7,8 +7,8 @@ function Home() {
   return (
     <div className="h-screen bg-green p-4">
       <Header />
-      <div className="h-[calc(100%-80px)] flex flex-col justify-between">
-        <section className="flex flex-col items-center text-center gap-4 mt-28">
+      <div className="h-[calc(100%-100px)] flex flex-col justify-between">
+        <section className="flex flex-col items-center text-center gap-4 mt-28 md:mt-14">
           <img
             src={iconHome}
             alt="homepage ice cream"
@@ -24,11 +24,16 @@ function Home() {
         <section className="flex flex-col gap-2">
           <button
             type="button"
-            className="bg-dark-blue py-2 rounded-xl font-black"
+            className="bg-dark-blue py-2 rounded-xl font-black md:w-[20%] md:m-auto hover:text-slate-100  hover:scale-125 ease-in-out duration-200"
           >
             SE CONNECTER
           </button>
-          <button type="button">S&rsquo;inscrire</button>
+          <button
+            type="button"
+            className="hover:text-pink ease-in-out duration-200"
+          >
+            S&rsquo;inscrire
+          </button>
         </section>
       </div>
     </div>
