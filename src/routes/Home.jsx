@@ -4,10 +4,11 @@ import Header from '../components/Header';
 import iconHome from '../img/iconHome.jpg';
 
 function Home() {
+  const color = '#D0F4DE';
   return (
-    <div className="h-screen bg-green p-4">
-      <Header />
-      <div className="h-[calc(100%-100px)] flex flex-col justify-between">
+    <div className="min-h-screen bg-green p-4">
+      <Header color={color} />
+      <div className="h-[calc(100vh-120px)] mt-[70px] flex flex-col justify-between">
         <section className="flex flex-col items-center text-center gap-4 mt-28 md:mt-14">
           <img
             src={iconHome}

@@ -2,15 +2,19 @@ import React, { useState } from 'react';
 import { MenuAlt2Icon, XIcon } from '@heroicons/react/solid';
 import { Link } from 'react-router-dom';
 
-function Header() {
+import iconHome from '../img/logoHome.jpg';
+
+function Header({ color }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex justify-between mb-20">
+    <div
+      className={`fixed top-0 left-0 flex justify-between w-full h-[75px] bg-[${color}]`}
+    >
       {!isOpen ? (
         <button
           type="button"
-          className="fixed z-10 cursor-pointer hover:scale-125 ease-in-out duration-200"
+          className="fixed top-2 left-2 z-10 cursor-pointer hover:scale-125 ease-in-out duration-200"
           onClick={() => setIsOpen(!isOpen)}
         >
           <MenuAlt2Icon className="h-14 w-14 text-purple" />
@@ -19,7 +23,7 @@ function Header() {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="fixed right-4 z-20 cursor-pointer hover:scale-125 ease-in-out duration-500"
+          className="fixed top-4 right-4 z-20 cursor-pointer hover:scale-125 ease-in-out duration-500"
         >
           <XIcon className="h-14 w-14 text-purple" />
         </button>
@@ -71,7 +75,15 @@ function Header() {
         </ul>
       </nav>
 
-      <div className="fixed right-6 h-14 w-14 bg-slate-300 rounded-xl">a</div>
+      <div className="fixed right-4 top-[10px] h-14 w-14 cursor-pointer">
+        <Link to="/">
+          <img
+            src={iconHome}
+            alt="homepage ice cream"
+            className="rounded-full hover:scale-110 ease-in-out duration-500"
+          />
+        </Link>
+      </div>
     </div>
   );
 }

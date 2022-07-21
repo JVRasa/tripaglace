@@ -16,10 +16,12 @@ function Parlour() {
 
   console.log(parlourList);
 
+  const color = '#C8EAFC';
+
   return (
-    <div className="h-screen bg-light-blue p-4">
+    <div className="min-h-screen bg-light-blue p-4">
       {' '}
-      <Header />
+      <Header color={color} />
       <div className="md:w-[70%] md:m-auto">
         <div className="bg-purple p-4 rounded-xl text-[#F5F5F5] text-xl  mt-28 mb-12">
           Rechercher un parfum

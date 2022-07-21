@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import ReviewCard from '../components/ReviewCard';
 
@@ -29,10 +29,14 @@ function ParlourDetail() {
 
   const flavoursList = parlorDetails.flavours.split(',');
 
+  const color = '#FCF6BD';
+
   return (
-    <div className="h-screen bg-yellow p-4">
-      <Header />
-      <p>← retour à la liste des glaciers</p>
+    <div className="min-h-screen bg-yellow p-4">
+      <Header color={color} />
+      <Link to="/parlour">
+        <p className="mt-[70px]">← retour à la liste des glaciers</p>
+      </Link>
       <section className="flex flex-col gap-4 mx-5 mt-8">
         <div className="bg-grey w-full h-[24vh] rounded-xl">image</div>
         <h1 className="text-[#4E98BE] font-black text-center text-2xl">
@@ -60,7 +64,7 @@ function ParlourDetail() {
         </h1>
         <section>
           {reviewList.map((review) => (
-            <ReviewCard key={review.id} review={review} />
+            <ReviewCard key={review.id} review={review} reviewId={review.id} />
           ))}
         </section>
       </section>
