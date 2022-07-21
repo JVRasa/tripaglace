@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { MenuAlt2Icon, XIcon } from '@heroicons/react/solid';
 import { Link } from 'react-router-dom';
 
@@ -6,6 +7,8 @@ import iconHome from '../img/logoHome.jpg';
 
 function Header({ color }) {
   const [isOpen, setIsOpen] = useState(false);
+  const { isAuthenticated, logout } = useAuth0();
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <div
@@ -56,7 +59,7 @@ function Header({ color }) {
           </li>
           <li>
             <Link
-              to="/"
+              to="/profile"
               onClick={() => setIsOpen(!isOpen)}
               className="text-2xl font-black hover:text-purple hover:text-4xl tracking-wide md:text-5xl md:hover:text-6xl"
             >
@@ -64,13 +67,25 @@ function Header({ color }) {
             </Link>
           </li>
           <li>
-            <Link
-              to="/"
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-2xl font-black hover:text-dark-blue  hover:text-4xl tracking-wide md:text-5xl md:hover:text-6xl"
-            >
-              SE DECONNECTER
-            </Link>
+            {isAuthenticated ? (
+              <Link
+                to="/"
+                className="text-2xl font-black hover:text-dark-blue
+              hover:text-4xl tracking-wide md:text-5xl md:hover:text-6xl"
+                onClick={() => logout({ returnTo: window.location.origin })}
+              >
+                SE DECONNECTER
+              </Link>
+            ) : (
+              <Link
+                to="/"
+                className="text-2xl font-black hover:text-dark-blue
+              hover:text-4xl tracking-wide md:text-5xl md:hover:text-6xl"
+                onClick={() => loginWithRedirect()}
+              >
+                SE CONNECTER
+              </Link>
+            )}
           </li>
         </ul>
       </nav>

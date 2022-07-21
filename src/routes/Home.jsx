@@ -1,9 +1,11 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import React from 'react';
 import Header from '../components/Header';
 
 import iconHome from '../img/iconHome.jpg';
 
 function Home() {
+  const { loginWithRedirect } = useAuth0();
   const color = 'green';
   return (
     <div className="min-h-screen bg-green p-4">
@@ -26,12 +28,14 @@ function Home() {
           <button
             type="button"
             className="bg-dark-blue py-2 rounded-xl font-black md:w-[20%] md:m-auto hover:text-slate-100  hover:scale-125 ease-in-out duration-200"
+            onClick={() => loginWithRedirect()}
           >
             SE CONNECTER
           </button>
           <button
             type="button"
             className="hover:text-pink ease-in-out duration-200"
+            onClick={() => loginWithRedirect()}
           >
             S&rsquo;inscrire
           </button>

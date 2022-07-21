@@ -5,6 +5,7 @@ import Parlour from '../routes/Parlour';
 import ParlourDetail from '../routes/ParlourDetail';
 import AddReview from '../routes/AddReview';
 import EditReview from '../routes/EditReview';
+import Profile from '../routes/Profile';
 
 function Main() {
   return (
@@ -12,6 +13,7 @@ function Main() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/parlour" element={<Parlour />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/parlour/:id" element={<ParlourDetail />} />
         <Route path="/parlour/:id/addreview" element={<AddReview />} />
         <Route path="/review/:id/edit" element={<EditReview />} />
