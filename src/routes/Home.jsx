@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import iconHome from '../img/iconHome.jpg';
 
 function Home() {
-  const color = '#D0F4DE';
+  const color = 'green';
   return (
     <div className="min-h-screen bg-green p-4">
       <Header color={color} />

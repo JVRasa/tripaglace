@@ -18,7 +18,7 @@ function ParlourDetail() {
       });
 
     axios
-      .get(`http://localhost:5000/reviews/${id}`)
+      .get(`http://localhost:5000/parlours/${id}/reviews`)
       .then((res) => setReviewList(res.data))
       .catch((err) => {
         console.error(err.response.data);
@@ -29,7 +29,7 @@ function ParlourDetail() {
 
   const flavoursList = parlorDetails.flavours.split(',');
 
-  const color = '#FCF6BD';
+  const color = 'yellow';
 
   return (
     <div className="min-h-screen bg-yellow p-4">

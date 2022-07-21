@@ -9,7 +9,7 @@ function Header({ color }) {
 
   return (
     <div
-      className={`fixed top-0 left-0 flex justify-between w-full h-[75px] bg-[${color}]`}
+      className={`fixed top-0 left-0 flex justify-between w-full h-[75px] bg-${color}`}
     >
       {!isOpen ? (
         <button

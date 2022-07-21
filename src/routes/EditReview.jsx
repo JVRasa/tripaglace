@@ -4,18 +4,15 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import Header from '../components/Header';
 
 function AddReview() {
-  const color = 'pink';
-
-  const [message, setMessage] = useState('');
-  const [parlorDetails, setParlorDetails] = useState('');
+  const [review, setReview] = useState('');
   const { id } = useParams();
 
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/parlours/${id}`)
-      .then((res) => setParlorDetails(res.data))
+      .get(`http://localhost:5000/reviews/${id}`)
+      .then((res) => setReview(res.data[0]))
       .catch((err) => {
         console.error(err.response.data);
       });
@@ -24,8 +21,8 @@ function AddReview() {
   const handleAddReview = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:5000/reviews/', {
-        message,
+      .patch(`http://localhost:5000/reviews/${id}`, {
+        message: review.message,
         user_id: 2,
         parlour_id: parseInt(id, 10),
       })
@@ -35,6 +32,8 @@ function AddReview() {
       });
   };
 
+  const color = 'pink';
+
   return (
     <div className="min-h-screen bg-[#FF99C8] p-4">
       <Header color={color} />
@@ -43,12 +42,12 @@ function AddReview() {
       </Link>
       <section className="mt-10">
         <h1 className="text-3xl font-Mochiy text-light-blue text-center">
-          {parlorDetails.shopname}
+          {review.shopname}
         </h1>
         <section className="bg-[#ffffff] p-4 mt-10 rounded-xl">
           <section className="flex gap-4 items-center mb-4">
             <div className="w-12 h-12 bg-grey rounded-full">image</div>
-            <div>username</div>
+            <div>{review.username}</div>
           </section>
           <form
             onSubmit={handleAddReview}
@@ -59,8 +58,10 @@ function AddReview() {
               placeholder="Laissez votre avis ici"
               rows="8"
               className="w-full h-auto"
-              onChange={(e) => setMessage(e.target.value)}
-              value={message}
+              onChange={(e) =>
+                setReview({ ...review, message: e.target.value })
+              }
+              value={review.message}
             >
               {' '}
             </textarea>
@@ -68,7 +69,7 @@ function AddReview() {
               type="submit"
               className="bg-green px-4 py-1 text-center mt-4 rounded-xl"
             >
-              AJOUTER
+              EDITER
             </button>
           </form>
         </section>

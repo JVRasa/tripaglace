@@ -16,7 +16,7 @@ function Parlour() {
 
   console.log(parlourList);
 
-  const color = '#C8EAFC';
+  const color = 'light-blue';
 
   return (
     <div className="min-h-screen bg-light-blue p-4">
