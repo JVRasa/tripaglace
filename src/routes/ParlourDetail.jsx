@@ -62,6 +62,14 @@ function ParlourDetail() {
         <h1 className="text-pink font-black text-center text-2xl">
           Avis des clients
         </h1>
+        <section className="bg-[#ffffff] p-4 rounded-xl mb-4 flex flex-col">
+          <p>
+            N&rsquo;hésitez pas à laisser un avis si vous avez déjà mangé ici !
+          </p>
+          <div className="bg-green px-2 text-center m-auto mt-4 rounded-xl">
+            <Link to={`/parlour/${id}/addreview`}>AJOUTER MON AVIS</Link>
+          </div>
+        </section>
         <section>
           {reviewList.map((review) => (
             <ReviewCard key={review.id} review={review} reviewId={review.id} />
