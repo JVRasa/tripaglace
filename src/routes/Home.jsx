@@ -14,7 +14,7 @@ function Home() {
             alt="homepage ice cream"
             className="w-60 h-60 rounded-full "
           />
-          <h1 className="text-3xl">
+          <h1 className="text-3xl font-Mochiy">
             Bienvenue
             <br />
             sur Le Glacier

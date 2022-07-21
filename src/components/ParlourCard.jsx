@@ -2,7 +2,7 @@ import React from 'react';
 
 function ParlourCard({ parlour }) {
   return (
-    <div className="bg-yellow py-4 px-8 rounded-xl flex justify-between gap-4">
+    <div className="bg-yellow py-4 px-8 rounded-xl flex justify-between gap-4 cursor-pointer md:hover:scale-105 ease-in-out duration-200 ">
       <section className="w-[25%] flex items-center">
         <div className="w-16 h-16 bg-grey rounded-full">1</div>
       </section>
